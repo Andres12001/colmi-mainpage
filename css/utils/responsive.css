@@ -1,0 +1,134 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .tech-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Responsivo para la demostración de IA */
+    .demo-screen {
+        min-height: 300px;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .gesture-detection {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .sign-language-hand {
+        margin-right: 0;
+        align-self: center;
+    }
+    
+    .neural-layers {
+        gap: 1.5rem;
+    }
+    
+    .recognition-result {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 1rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .phone-mockup {
+        width: 250px;
+        height: 500px;
+    }
+    
+    .logo {
+        height: 35px;
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .phone-mockup {
+        width: 200px;
+        height: 400px;
+    }
+    
+    .logo {
+        height: 30px;
+        max-width: 100px;
+    }
+    
+    /* Ajustes adicionales para la demo de IA en móviles */
+    .sign-language-hand {
+        width: 90px;
+        height: 120px;
+    }
+    
+    .hand-image {
+        max-height: 100px;
+    }
+    
+    .neural-layers {
+        gap: 1rem;
+    }
+    
+    .neuron {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .recognition-result {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+}

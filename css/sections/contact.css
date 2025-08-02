@@ -1,0 +1,29 @@
+/* Contact Section */
+.contact {
+    padding: 6rem 0;
+    background: var(--background);
+    text-align: center;
+}
+
+.contact-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.contact-info {
+    color: var(--text-secondary);
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}

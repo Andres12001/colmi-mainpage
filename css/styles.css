@@ -1,0 +1,866 @@
+/* Reset y Variables CSS */
+:root {
+    --primary-color: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary-color: #f8fafc;
+    --accent-color: #10b981;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-light: #9ca3af;
+    --background: #ffffff;
+    --background-alt: #f9fafb;
+    --border-color: #e5e7eb;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --border-radius: 12px;
+    --max-width: 1200px;
+    --header-height: 80px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    height: var(--header-height);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-primary);
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    padding: calc(var(--header-height) + 4rem) 0 4rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn.large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+}
+
+/* Phone Mockup */
+.phone-mockup {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    margin: 0 auto;
+    background: #1f2937;
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow: var(--shadow-lg);
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.app-preview {
+    padding: 20px;
+    height: 100%;
+}
+
+.status-bar {
+    height: 20px;
+    background: var(--background-alt);
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.post-preview {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background: var(--background-alt);
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+.post-text {
+    flex: 1;
+}
+
+.line {
+    height: 12px;
+    background: var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.line.short {
+    width: 60%;
+}
+
+.video-call-preview {
+    background: #1f2937;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.video-frame {
+    background: var(--primary-color);
+    border-radius: 8px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.gesture-indicator {
+    font-size: 3rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Features Section */
+.features {
+    padding: 6rem 0;
+    background: var(--background);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Technology Section */
+.technology {
+    padding: 6rem 0;
+    background: var(--background-alt);
+}
+
+.tech-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.tech-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.tech-features {
+    list-style: none;
+}
+
+.tech-features li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+}
+
+.check {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.ai-demo {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.demo-screen {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    border-radius: 8px;
+    padding: 2rem;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.gesture-detection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+/* Mano con gesto de lengua de señas */
+.sign-language-hand {
+    width: 120px;
+    height: 160px;
+    position: relative;
+    margin-right: 2rem;
+    animation: handWave 3s ease-in-out infinite;
+}
+
+.hand-image {
+    width: 100%;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.4));
+    animation: handGlow 3s ease-in-out infinite;
+}
+
+/* Puntos de detección en articulaciones */
+.detection-point {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    animation: pulse-point 2s infinite;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.point-wrist { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.point-thumb { top: 60%; left: 20%; animation-delay: 0.2s; }
+.point-index { top: 30%; left: 30%; animation-delay: 0.4s; }
+.point-middle { top: 20%; left: 50%; animation-delay: 0.6s; }
+.point-ring { top: 30%; left: 70%; animation-delay: 0.8s; }
+.point-pinky { top: 40%; left: 85%; animation-delay: 1s; }
+
+/* Red neuronal */
+.neural-network {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.neural-layers {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.neural-layer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.neuron {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    position: relative;
+    animation: neuron-activity 2s infinite;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+}
+
+.neuron.active {
+    background: #fbbf24;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+    animation: neuron-fire 1.5s infinite;
+}
+
+/* Conexiones neuronales */
+.neural-connection {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    animation: data-flow 2s infinite;
+    opacity: 0.7;
+}
+
+.connection-1 { width: 40px; top: 10px; left: 20px; animation-delay: 0.2s; }
+.connection-2 { width: 40px; top: 30px; left: 20px; animation-delay: 0.4s; }
+.connection-3 { width: 40px; top: 50px; left: 20px; animation-delay: 0.6s; }
+
+/* Resultado del reconocimiento */
+.recognition-result {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: rgba(16, 185, 129, 0.2);
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    animation: result-appear 3s infinite;
+}
+
+/* Ondas de señal */
+.signal-wave {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    top: 50%;
+    animation: signal-flow 2s infinite;
+    opacity: 0.6;
+}
+
+@keyframes handGlow {
+    0%, 100% { 
+        filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.4));
+        transform: scale(1);
+    }
+    50% { 
+        filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.8));
+        transform: scale(1.02);
+    }
+}
+
+@keyframes handWave {
+    0%, 100% { 
+        transform: translateX(0) rotate(0deg);
+    }
+    20% { 
+        transform: translateX(-12px) rotate(-8deg);
+    }
+    40% { 
+        transform: translateX(12px) rotate(8deg);
+    }
+    60% { 
+        transform: translateX(-8px) rotate(-5deg);
+    }
+    80% { 
+        transform: translateX(8px) rotate(5deg);
+    }
+}
+
+@keyframes pulse-point {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+        box-shadow: 0 0 10px var(--accent-color);
+    }
+    50% { 
+        opacity: 0.6; 
+        transform: scale(1.3);
+        box-shadow: 0 0 20px var(--accent-color);
+    }
+}
+
+@keyframes neuron-activity {
+    0%, 100% { 
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes neuron-fire {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+    }
+    25% { 
+        opacity: 0.8;
+        transform: scale(1.2);
+        box-shadow: 0 0 30px rgba(251, 191, 36, 1);
+    }
+    75% { 
+        opacity: 0.9;
+        transform: scale(1.1);
+        box-shadow: 0 0 25px rgba(251, 191, 36, 0.9);
+    }
+}
+
+@keyframes data-flow {
+    0% { 
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    50% { 
+        opacity: 1;
+        transform: scaleX(1);
+    }
+    100% { 
+        opacity: 0;
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+}
+
+@keyframes signal-flow {
+    0% { 
+        left: -100%;
+        opacity: 0;
+    }
+    50% { 
+        opacity: 1;
+    }
+    100% { 
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes result-appear {
+    0%, 70% { 
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    80%, 95% { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% { 
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+}
+
+/* Contact Section */
+.contact {
+    padding: 6rem 0;
+    background: var(--background);
+    text-align: center;
+}
+
+.contact-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.contact-info {
+    color: var(--text-secondary);
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Footer */
+.footer {
+    background: var(--text-primary);
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-brand h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+    color: var(--text-light);
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer-column h4 {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #374151;
+    color: var(--text-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .tech-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Responsivo para la demostración de IA */
+    .demo-screen {
+        min-height: 300px;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .gesture-detection {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .sign-language-hand {
+        margin-right: 0;
+        align-self: center;
+    }
+    
+    .neural-layers {
+        gap: 1.5rem;
+    }
+    
+    .recognition-result {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 1rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .phone-mockup {
+        width: 250px;
+        height: 500px;
+    }
+    
+    .logo {
+        height: 35px;
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .phone-mockup {
+        width: 200px;
+        height: 400px;
+    }
+    
+    .logo {
+        height: 30px;
+        max-width: 100px;
+    }
+    
+    /* Ajustes adicionales para la demo de IA en móviles */
+    .sign-language-hand {
+        width: 90px;
+        height: 120px;
+    }
+    
+    .hand-image {
+        max-height: 100px;
+    }
+    
+    .neural-layers {
+        gap: 1rem;
+    }
+    
+    .neuron {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .recognition-result {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+}

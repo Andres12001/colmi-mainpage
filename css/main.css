@@ -1,0 +1,22 @@
+/* Archivo CSS principal - Importa todos los módulos */
+
+/* Utilidades base */
+@import url('./utils/variables.css');
+@import url('./utils/animations.css');
+
+/* Componentes */
+@import url('./components/header.css');
+@import url('./components/buttons.css');
+@import url('./components/cards.css');
+@import url('./components/phone-mockup.css');
+@import url('./components/ai-demo.css');
+
+/* Secciones */
+@import url('./sections/hero.css');
+@import url('./sections/features.css');
+@import url('./sections/technology.css');
+@import url('./sections/contact.css');
+@import url('./sections/footer.css');
+
+/* Responsivo */
+@import url('./utils/responsive.css');
