@@ -212,3 +212,198 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 });
+
+// Funcionalidad de la Demo Interactiva
+document.addEventListener('DOMContentLoaded', function() {
+    // Palabras que la demo puede reconocer
+    const recognizedWords = [
+        'Hola', 'Adiós', 'Gracias', 'Por favor', 'Sí', 
+        'No', 'Ayuda', 'Amor', 'Familia', 'Amigo'
+    ];
+    
+    let currentWordIndex = 0;
+    const detectedWordElement = document.getElementById('detectedWord');
+    const confidenceLevelElement = document.getElementById('confidenceLevel');
+    const wordTags = document.querySelectorAll('.word-tag');
+    
+    // Función para cambiar la palabra detectada
+    function changeDetectedWord() {
+        if (detectedWordElement && confidenceLevelElement && wordTags.length > 0) {
+            // Remover clase active de todas las palabras
+            wordTags.forEach(tag => tag.classList.remove('active'));
+            
+            // Actualizar palabra detectada
+            const newWord = recognizedWords[currentWordIndex];
+            detectedWordElement.textContent = newWord;
+            
+            // Simular nivel de confianza aleatorio entre 85% y 98%
+            const confidence = Math.floor(Math.random() * 13) + 85;
+            confidenceLevelElement.textContent = confidence + '%';
+            
+            // Activar la palabra correspondiente en las etiquetas
+            const matchingTag = Array.from(wordTags).find(tag => tag.textContent === newWord);
+            if (matchingTag) {
+                matchingTag.classList.add('active');
+            }
+            
+            // Avanzar al siguiente índice
+            currentWordIndex = (currentWordIndex + 1) % recognizedWords.length;
+        }
+    }
+    
+    // Cambiar palabra cada 4 segundos
+    setInterval(changeDetectedWord, 4000);
+    
+    // Funcionalidad de los controles de video
+    const controlButtons = document.querySelectorAll('.control-btn');
+    
+    controlButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Agregar efecto visual al hacer click
+            this.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+            
+            // Simular funcionalidad según el tipo de botón
+            if (this.classList.contains('mute-btn')) {
+                this.style.background = this.style.background === 'rgb(239, 68, 68)' ? 
+                    'rgba(255, 255, 255, 0.1)' : '#ef4444';
+            } else if (this.classList.contains('camera-btn')) {
+                this.style.background = this.style.background === 'rgb(239, 68, 68)' ? 
+                    'rgba(255, 255, 255, 0.1)' : '#ef4444';
+            } else if (this.classList.contains('end-btn')) {
+                // Simular finalizar llamada
+                showNotification('Llamada finalizada', 'success');
+            } else if (this.classList.contains('settings-btn')) {
+                showNotification('Configuración abierta', 'info');
+            }
+        });
+    });
+    
+    // Interactividad con las palabras aprendidas
+    wordTags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            const word = this.textContent;
+            
+            // Remover clase active de todas las palabras
+            wordTags.forEach(t => t.classList.remove('active'));
+            
+            // Activar la palabra clickeada
+            this.classList.add('active');
+            
+            // Actualizar la palabra detectada
+            if (detectedWordElement) {
+                detectedWordElement.textContent = word;
+            }
+            
+            // Simular nueva confianza
+            if (confidenceLevelElement) {
+                const confidence = Math.floor(Math.random() * 13) + 85;
+                confidenceLevelElement.textContent = confidence + '%';
+            }
+            
+            // Mostrar notificación
+            showNotification(`Gesto "${word}" seleccionado`, 'success');
+        });
+    });
+    
+    // Función para mostrar notificaciones
+    function showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.textContent = message;
+        
+        const colors = {
+            success: '#10b981',
+            info: '#3b82f6',
+            warning: '#f59e0b',
+            error: '#ef4444'
+        };
+        
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${colors[type] || colors.info};
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            animation: slideInNotification 0.3s ease;
+            font-weight: 500;
+            max-width: 300px;
+        `;
+        
+        // Agregar animación CSS si no existe
+        if (!document.querySelector('#notification-styles')) {
+            const style = document.createElement('style');
+            style.id = 'notification-styles';
+            style.textContent = `
+                @keyframes slideInNotification {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOutNotification {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        document.body.appendChild(notification);
+        
+        // Remover la notificación después de 3 segundos
+        setTimeout(() => {
+            notification.style.animation = 'slideOutNotification 0.3s ease';
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
+    
+    // Animación de estadísticas
+    function animateStats() {
+        const stats = document.querySelectorAll('.stat-number');
+        stats.forEach((stat, index) => {
+            setTimeout(() => {
+                stat.style.animation = 'pulse 0.6s ease';
+            }, index * 200);
+        });
+    }
+    
+    // Observar cuando la sección demo entra en vista
+    const demoSection = document.querySelector('.demo');
+    if (demoSection) {
+        const demoObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateStats, 500);
+                    demoObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+        
+        demoObserver.observe(demoSection);
+    }
+    
+    // Agregar animación pulse si no existe
+    if (!document.querySelector('#pulse-animation')) {
+        const style = document.createElement('style');
+        style.id = 'pulse-animation';
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+});

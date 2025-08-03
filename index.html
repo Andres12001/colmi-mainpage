@@ -20,6 +20,7 @@
                 <li><a href="#inicio" class="nav-link">Inicio</a></li>
                 <li><a href="#caracteristicas" class="nav-link">Características</a></li>
                 <li><a href="#tecnologia" class="nav-link">Tecnología</a></li>
+                <li><a href="#demo" class="nav-link">Demo</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
             <div class="nav-toggle">
@@ -196,6 +197,135 @@
                                 "Hola" detectado ✓
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="demo-header">
+                <h2 class="section-title">Prueba la Demo en Vivo</h2>
+                <p class="demo-description">
+                    Experimenta el reconocimiento de gestos de Colmi en tiempo real. 
+                    Esta demo reconoce 10 palabras básicas en lengua de señas.
+                </p>
+            </div>
+            
+            <div class="demo-content">
+                <div class="videocall-interface">
+                    <!-- Ventana principal de video -->
+                    <div class="video-main">
+                        <div class="video-feed">
+                            <!-- Simulación de cámara -->
+                            <div class="camera-view">
+                                <div class="user-silhouette">
+                                    <div class="user-head"></div>
+                                    <div class="user-shoulders"></div>
+                                    <!-- Mano animada para gestos -->
+                                    <div class="gesture-hand">
+                                        <img src="assets/logo/mano.png" alt="Gesto de mano" class="demo-hand">
+                                    </div>
+                                </div>
+                                
+                                <!-- Overlay de detección -->
+                                <div class="detection-overlay">
+                                    <div class="detection-box">
+                                        <div class="detection-points">
+                                            <div class="point active"></div>
+                                            <div class="point active"></div>
+                                            <div class="point active"></div>
+                                            <div class="point active"></div>
+                                            <div class="point active"></div>
+                                        </div>
+                                        <div class="confidence-bar">
+                                            <div class="confidence-fill"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Controles de la videollamada -->
+                            <div class="video-controls">
+                                <button class="control-btn mute-btn">🎤</button>
+                                <button class="control-btn camera-btn">📹</button>
+                                <button class="control-btn end-btn">📞</button>
+                                <button class="control-btn settings-btn">⚙️</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Panel de reconocimiento -->
+                        <div class="recognition-panel">
+                            <div class="panel-header">
+                                <h3>Reconocimiento de Gestos</h3>
+                                <div class="status-indicator active">EN VIVO</div>
+                            </div>
+                            
+                            <div class="recognized-word">
+                                <div class="word-display">
+                                    <span class="detected-word" id="detectedWord">Hola</span>
+                                    <div class="confidence-level">Confianza: <span id="confidenceLevel">95%</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="words-learned">
+                                <h4>Palabras que reconozco:</h4>
+                                <div class="word-tags">
+                                    <span class="word-tag active">Hola</span>
+                                    <span class="word-tag">Adiós</span>
+                                    <span class="word-tag">Gracias</span>
+                                    <span class="word-tag">Por favor</span>
+                                    <span class="word-tag">Sí</span>
+                                    <span class="word-tag">No</span>
+                                    <span class="word-tag">Ayuda</span>
+                                    <span class="word-tag">Amor</span>
+                                    <span class="word-tag">Familia</span>
+                                    <span class="word-tag">Amigo</span>
+                                </div>
+                            </div>
+                            
+                            <div class="demo-stats">
+                                <div class="stat">
+                                    <span class="stat-number">10</span>
+                                    <span class="stat-label">Palabras</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">95%</span>
+                                    <span class="stat-label">Precisión</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">Real-time</span>
+                                    <span class="stat-label">Velocidad</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ventana pequeña de participante -->
+                    <div class="video-participant">
+                        <div class="participant-feed">
+                            <div class="participant-avatar">
+                                <div class="avatar-placeholder">👤</div>
+                                <div class="participant-name">Amigo</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-info">
+                    <div class="info-card">
+                        <h4>🎯 Demo Interactiva</h4>
+                        <p>Esta demostración muestra cómo Colmi reconoce gestos en tiempo real durante una videollamada.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🤖 IA Integrada</h4>
+                        <p>La inteligencia artificial procesa cada gesto instantáneamente sin interrumpir la conversación.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🚀 Próximamente</h4>
+                        <p>La versión completa incluirá cientos de palabras y frases en múltiples idiomas de señas.</p>
                     </div>
                 </div>
             </div>
