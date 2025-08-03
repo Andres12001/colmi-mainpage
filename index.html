@@ -219,30 +219,33 @@
                     <!-- Ventana principal de video -->
                     <div class="video-main">
                         <div class="video-feed">
-                            <!-- Simulación de cámara -->
+                            <!-- Cámara real con MediaPipe -->
                             <div class="camera-view">
-                                <div class="user-silhouette">
-                                    <div class="user-head"></div>
-                                    <div class="user-shoulders"></div>
-                                    <!-- Mano animada para gestos -->
-                                    <div class="gesture-hand">
-                                        <img src="assets/logo/mano.png" alt="Gesto de mano" class="demo-hand">
-                                    </div>
+                                <!-- Video stream de la cámara -->
+                                <video id="cameraVideo" autoplay muted playsinline></video>
+                                
+                                <!-- Canvas para overlay de detección -->
+                                <canvas id="detectionCanvas"></canvas>
+                                
+                                <!-- Botón para iniciar cámara -->
+                                <div id="cameraInitButton" class="camera-init">
+                                    <button class="btn btn-primary camera-start-btn">
+                                        📹 Activar Cámara para Demo
+                                    </button>
+                                    <p class="camera-info">Permite el acceso a la cámara para ver la detección de manos en tiempo real</p>
                                 </div>
                                 
-                                <!-- Overlay de detección -->
-                                <div class="detection-overlay">
-                                    <div class="detection-box">
-                                        <div class="detection-points">
-                                            <div class="point active"></div>
-                                            <div class="point active"></div>
-                                            <div class="point active"></div>
-                                            <div class="point active"></div>
-                                            <div class="point active"></div>
-                                        </div>
-                                        <div class="confidence-bar">
-                                            <div class="confidence-fill"></div>
-                                        </div>
+                                <!-- Estado de carga -->
+                                <div id="loadingState" class="loading-state" style="display: none;">
+                                    <div class="loading-spinner"></div>
+                                    <p>Iniciando detección de manos...</p>
+                                </div>
+                                
+                                <!-- Información de detección -->
+                                <div id="detectionInfo" class="detection-info" style="display: none;">
+                                    <div class="detection-status">
+                                        <span class="status-dot"></span>
+                                        <span class="status-text">Detección activa</span>
                                     </div>
                                 </div>
                             </div>
@@ -251,6 +254,7 @@
                             <div class="video-controls">
                                 <button class="control-btn mute-btn">🎤</button>
                                 <button class="control-btn camera-btn">📹</button>
+                                <button class="control-btn mediapipe-btn" title="MediaPipe Hand Tracking">�️</button>
                                 <button class="control-btn end-btn">📞</button>
                                 <button class="control-btn settings-btn">⚙️</button>
                             </div>

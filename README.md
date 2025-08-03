@@ -1,53 +1,103 @@
-# Colmi - Red Social con IA
+# 🌟 Colmi - Red Social con IA
 
-Una página web moderna y minimalista para dar a conocer **Colmi**, una innovadora aplicación de red social que combina funcionalidades tradicionales con tecnología de inteligencia artificial avanzada.
+Red social innovadora que combina funcionalidades tradicionales con tecnología de inteligencia artificial avanzada para reconocimiento de gestos en tiempo real.
 
-## 🚀 Características Principales
+## ✨ Características
 
-- **Red Social Completa**: Perfiles, conexiones, publicaciones y mensajería en tiempo real
-- **Videollamadas Inteligentes**: Con reconocimiento de gestos mediante IA
+- **Red Social Completa**: Perfiles de usuario, conexiones, publicaciones y mensajería
+- **Tecnología IA**: Videollamadas con reconocimiento de gestos en tiempo real
+- **Demo Interactiva**: Prueba la detección de manos directamente en el navegador
 - **Multiplataforma**: Disponible en web y dispositivos móviles
-- **Privacidad y Seguridad**: Protección de datos con los más altos estándares
+- **Diseño Minimalista**: Interfaz limpia y moderna
 
-## 🛠️ Tecnologías Utilizadas
+## 🚀 Inicio Rápido
 
-- **HTML5**: Estructura semántica y accesible
-- **CSS3**: Diseño responsivo con variables personalizadas, Grid y Flexbox
-- **JavaScript**: Interactividad y animaciones suaves
-- **Google Fonts**: Tipografía Inter para una apariencia moderna
+### 1. Iniciar el servidor de detección de manos
+```bash
+.\start_server.bat
+```
 
-## 📂 Estructura del Proyecto
+### 2. Abrir la aplicación web
+- Abre `index.html` en tu navegador
+- Navega a la sección "Demo"
+- Haz clic en "📹 Activar Cámara para Demo"
+
+## 🎯 Demo de Detección de Gestos
+
+La demo incluye:
+- ✅ 10 gestos reconocidos automáticamente
+- ✅ Video en tiempo real con landmarks de manos
+- ✅ Interfaz de videollamada realista
+- ✅ API REST para integración
+
+### Gestos disponibles:
+1. Hola
+2. Adiós  
+3. Gracias
+4. Por favor
+5. Sí
+6. No
+7. Ayuda
+8. Amor
+9. Familia
+10. Amigo
+
+## 🔧 Tecnologías
+
+### Frontend
+- HTML5 semántico
+- CSS3 con variables personalizadas y Grid/Flexbox
+- JavaScript vanilla para interactividad
+- Google Fonts (Inter) para tipografía
+
+### Backend
+- Python Flask para API
+- OpenCV para procesamiento de video
+- Detección de manos simulada (compatible con MediaPipe)
+- CORS habilitado para frontend
+
+## � Estructura del Proyecto
 
 ```
 colmi/
 ├── index.html                    # Página principal
-├── css/
-│   ├── main.css                 # CSS principal (importa todos los módulos)
-│   ├── components/              # Componentes reutilizables
-│   │   ├── header.css          # Navegación y header
-│   │   ├── buttons.css         # Estilos de botones
-│   │   ├── cards.css           # Tarjetas de características
-│   │   ├── phone-mockup.css    # Mockup del teléfono
-│   │   └── ai-demo.css         # Demostración de IA
-│   ├── sections/                # Secciones de la página
-│   │   ├── hero.css            # Sección principal
-│   │   ├── features.css        # Características
-│   │   ├── technology.css      # Tecnología
-│   │   ├── contact.css         # Contacto
-│   │   └── footer.css          # Footer
-│   ├── utils/                   # Utilidades
-│   │   ├── variables.css       # Variables y reset
-│   │   ├── animations.css      # Animaciones
-│   │   └── responsive.css      # Diseño responsivo
-│   └── README.md               # Documentación CSS
+├── hand_detection_simple.py     # Servidor Flask
+├── start_server.bat            # Script de inicio
+├── assets/                     # Imágenes y logos
+├── css/                        # Estilos CSS
 ├── js/
-│   └── script.js               # Funcionalidades interactivas
-├── assets/
-│   └── logo/                   # Logos e imágenes
-│       ├── logo.png
-│       └── mano.png
-├── .github/
-│   └── copilot-instructions.md
+│   ├── script.js              # JavaScript principal
+│   └── hand-detection.js      # Lógica de detección
+├── gestos-env/                # Entorno virtual Python
+└── README_DEMO_INTEGRADO.md   # Documentación detallada
+```
+
+## 🌐 API Endpoints
+
+- `GET /health` - Estado del servidor
+- `GET /hand_data` - Datos de detección en JSON
+- `GET /video_feed` - Stream de video con landmarks
+
+## 🎨 Paleta de Colores
+
+- Primario: #6366f1 (Índigo)
+- Secundario: #10b981 (Esmeralda)  
+- Texto: #1f2937 (Gris oscuro)
+- Fondo: #ffffff (Blanco)
+
+## 📖 Documentación Adicional
+
+Para información detallada sobre la demo y funcionalidades avanzadas, consulta `README_DEMO_INTEGRADO.md`.
+
+## 🌟 Estado del Proyecto
+
+✅ **Demo funcional** - Lista para presentaciones
+✅ **Backend integrado** - Servidor Flask operativo  
+✅ **Frontend responsivo** - Compatible con todos los dispositivos
+✅ **API documentada** - Endpoints listos para integración
+
+---
+*Creado con ❤️ para revolucionar las comunicaciones digitales*
 └── README.md
 ```
 

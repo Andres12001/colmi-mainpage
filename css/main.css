@@ -10,6 +10,7 @@
 @import url('./components/cards.css');
 @import url('./components/phone-mockup.css');
 @import url('./components/ai-demo.css');
+@import url('./components/camera.css');
 
 /* Secciones */
 @import url('./sections/hero.css');

@@ -258,6 +258,29 @@
     background: #dc2626;
 }
 
+/* Botón para stream de Python */
+.python-stream-btn {
+    background: rgba(16, 185, 129, 0.2);
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.python-stream-btn:hover {
+    background: rgba(16, 185, 129, 0.4);
+}
+
+.python-stream-btn::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
 /* Recognition Panel */
 .recognition-panel {
     background: rgba(255, 255, 255, 0.95);

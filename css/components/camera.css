@@ -1,0 +1,249 @@
+/* Estilos para la cámara real y detección de manos */
+
+/* Video de la cámara */
+#cameraVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #1a1a2e;
+    display: none; /* Oculto hasta que se active */
+}
+
+/* Canvas para overlay de detección */
+#detectionCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    pointer-events: none;
+    z-index: 2;
+    display: none; /* Oculto hasta que se active */
+}
+
+/* Botón para iniciar cámara */
+.camera-init {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.camera-start-btn {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    min-width: 200px;
+    background: linear-gradient(45deg, var(--primary-color), #8b5cf6);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.camera-start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+    background: linear-gradient(45deg, #5b5bd6, #7c3aed);
+}
+
+.camera-info {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.5;
+    max-width: 280px;
+}
+
+/* Estado de carga */
+.loading-state {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e2e8f0;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-state p {
+    margin: 0;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Información de detección */
+.detection-info {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 4;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.detection-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.status-text {
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Overlay para puntos de detección en tiempo real */
+.hand-landmark {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border: 2px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    z-index: 3;
+    animation: landmarkPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes landmarkPulse {
+    0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.2);
+        box-shadow: 0 0 12px rgba(16, 185, 129, 0.8);
+    }
+}
+
+/* Conexiones entre puntos */
+.hand-connection {
+    position: absolute;
+    background: rgba(16, 185, 129, 0.6);
+    z-index: 2;
+    border-radius: 2px;
+}
+
+/* Estados de error */
+.camera-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.camera-error h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.camera-error p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Responsivo para cámara */
+@media (max-width: 768px) {
+    .camera-init {
+        padding: 1.5rem;
+        margin: 1rem;
+        width: calc(100% - 2rem);
+        max-width: 300px;
+    }
+    
+    .camera-start-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        min-width: 180px;
+    }
+    
+    .camera-info {
+        font-size: 0.8rem;
+        max-width: 250px;
+    }
+    
+    .detection-info {
+        top: 10px;
+        left: 10px;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .status-text {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .camera-init {
+        padding: 1rem;
+    }
+    
+    .camera-start-btn {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+        min-width: 160px;
+    }
+    
+    .hand-landmark {
+        width: 4px;
+        height: 4px;
+        border-width: 1px;
+    }
+}
